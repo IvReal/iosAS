@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA19CF4323329FF700F600E0 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF4223329FF700F600E0 /* PlaceViewController.m */; };
+		AA19CF472333701100F600E0 /* PlaceTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF462333701100F600E0 /* PlaceTableCell.m */; };
 		AA962CAD232EC398006E5F19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAC232EC398006E5F19 /* AppDelegate.m */; };
 		AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAF232EC398006E5F19 /* MainViewController.m */; };
 		AA962CB5232EC399006E5F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA962CB4232EC399006E5F19 /* Assets.xcassets */; };
@@ -14,9 +16,20 @@
 		AA962CC4232FEF27006E5F19 /* ColoredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CC3232FEF27006E5F19 /* ColoredViewController.m */; };
 		AA962CC9233115F7006E5F19 /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CC8233115F7006E5F19 /* Test1ViewController.m */; };
 		AA962CCC2331163C006E5F19 /* Test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CCB2331163C006E5F19 /* Test2ViewController.m */; };
+		AA962CF223327DA8006E5F19 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CF123327DA8006E5F19 /* Country.m */; };
+		AA962CF523327DD2006E5F19 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CF423327DD2006E5F19 /* City.m */; };
+		AA962CF823327E05006E5F19 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CF723327E05006E5F19 /* Airport.m */; };
+		AA962CFC2332873C006E5F19 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CFB2332873C006E5F19 /* DataManager.m */; };
+		AA962D00233288D7006E5F19 /* Airports.json in Resources */ = {isa = PBXBuildFile; fileRef = AA962CFD233288D7006E5F19 /* Airports.json */; };
+		AA962D01233288D7006E5F19 /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = AA962CFE233288D7006E5F19 /* Countries.json */; };
+		AA962D02233288D7006E5F19 /* Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = AA962CFF233288D7006E5F19 /* Cities.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA19CF4123329FF700F600E0 /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
+		AA19CF4223329FF700F600E0 /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
+		AA19CF452333701100F600E0 /* PlaceTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableCell.h; sourceTree = "<group>"; };
+		AA19CF462333701100F600E0 /* PlaceTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableCell.m; sourceTree = "<group>"; };
 		AA962CA8232EC398006E5F19 /* iosAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA962CAB232EC398006E5F19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA962CAC232EC398006E5F19 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -31,6 +44,17 @@
 		AA962CC8233115F7006E5F19 /* Test1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
 		AA962CCA2331163C006E5F19 /* Test2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test2ViewController.h; sourceTree = "<group>"; };
 		AA962CCB2331163C006E5F19 /* Test2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test2ViewController.m; sourceTree = "<group>"; };
+		AA962CF023327DA8006E5F19 /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
+		AA962CF123327DA8006E5F19 /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
+		AA962CF323327DD2006E5F19 /* City.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
+		AA962CF423327DD2006E5F19 /* City.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		AA962CF623327E05006E5F19 /* Airport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		AA962CF723327E05006E5F19 /* Airport.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		AA962CFA2332873C006E5F19 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		AA962CFB2332873C006E5F19 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		AA962CFD233288D7006E5F19 /* Airports.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Airports.json; sourceTree = "<group>"; };
+		AA962CFE233288D7006E5F19 /* Countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
+		AA962CFF233288D7006E5F19 /* Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cities.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA19CF4423336FCE00F600E0 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AA19CF452333701100F600E0 /* PlaceTableCell.h */,
+				AA19CF462333701100F600E0 /* PlaceTableCell.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		AA962C9F232EC398006E5F19 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +96,9 @@
 		AA962CAA232EC398006E5F19 /* iosAS */ = {
 			isa = PBXGroup;
 			children = (
+				AA19CF4423336FCE00F600E0 /* UI */,
+				AA962CF9233286D0006E5F19 /* Managers */,
+				AA962CEF23327D6D006E5F19 /* Models */,
 				AA962CC623311581006E5F19 /* ViewControllers */,
 				AA962CAB232EC398006E5F19 /* AppDelegate.h */,
 				AA962CAC232EC398006E5F19 /* AppDelegate.m */,
@@ -84,8 +120,35 @@
 				AA962CC8233115F7006E5F19 /* Test1ViewController.m */,
 				AA962CCA2331163C006E5F19 /* Test2ViewController.h */,
 				AA962CCB2331163C006E5F19 /* Test2ViewController.m */,
+				AA19CF4123329FF700F600E0 /* PlaceViewController.h */,
+				AA19CF4223329FF700F600E0 /* PlaceViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AA962CEF23327D6D006E5F19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA962CF023327DA8006E5F19 /* Country.h */,
+				AA962CF123327DA8006E5F19 /* Country.m */,
+				AA962CF323327DD2006E5F19 /* City.h */,
+				AA962CF423327DD2006E5F19 /* City.m */,
+				AA962CF623327E05006E5F19 /* Airport.h */,
+				AA962CF723327E05006E5F19 /* Airport.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA962CF9233286D0006E5F19 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				AA962CFD233288D7006E5F19 /* Airports.json */,
+				AA962CFF233288D7006E5F19 /* Cities.json */,
+				AA962CFE233288D7006E5F19 /* Countries.json */,
+				AA962CFA2332873C006E5F19 /* DataManager.h */,
+				AA962CFB2332873C006E5F19 /* DataManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +208,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA962D02233288D7006E5F19 /* Cities.json in Resources */,
 				AA962CB5232EC399006E5F19 /* Assets.xcassets in Resources */,
+				AA962D01233288D7006E5F19 /* Countries.json in Resources */,
+				AA962D00233288D7006E5F19 /* Airports.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +222,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA962CF823327E05006E5F19 /* Airport.m in Sources */,
+				AA962CFC2332873C006E5F19 /* DataManager.m in Sources */,
+				AA19CF4323329FF700F600E0 /* PlaceViewController.m in Sources */,
+				AA962CF223327DA8006E5F19 /* Country.m in Sources */,
+				AA19CF472333701100F600E0 /* PlaceTableCell.m in Sources */,
 				AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */,
+				AA962CF523327DD2006E5F19 /* City.m in Sources */,
 				AA962CC9233115F7006E5F19 /* Test1ViewController.m in Sources */,
 				AA962CC4232FEF27006E5F19 /* ColoredViewController.m in Sources */,
 				AA962CCC2331163C006E5F19 /* Test2ViewController.m in Sources */,

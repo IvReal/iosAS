@@ -36,7 +36,7 @@
     //CGFloat height = self.view.frame.size.height;
     
     CGFloat x = 50.0;
-    CGFloat y = 100.0;
+    CGFloat y = 10.0;
     CGFloat w = width - x * 2;
     CGFloat indent = 10.0;
 
