@@ -7,7 +7,9 @@
 #import "ColoredViewController.h"
 #import "Test1ViewController.h"
 #import "Test2ViewController.h"
+#import "NewsViewController.h"
 #import "DataManager.h"
+#import "APIManager.h"
 #import "PlaceViewController.h"
 
 @interface MainViewController () <PlaceViewControllerDelegate>
@@ -18,6 +20,7 @@
 @property (nonatomic, weak, readwrite) UIButton* buttonDeparture;
 @property (nonatomic, weak, readwrite) UIButton* buttonArrival;
 @property (nonatomic, weak, readwrite) UIButton* buttonSearch;
+@property (nonatomic, weak, readwrite) UIButton* buttonNews;
 
 @property (nonatomic, weak, readwrite) DataManager* dataManager;
 
@@ -28,7 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setTitle: @"Blue VC"];
+    self.navigationController.navigationBar.prefersLargeTitles = YES;
+    [self setTitle: @"Main"];
     self.view.backgroundColor = [UIColor colorWithRed:0.0 green:255.0 blue:255.0 alpha:1.0];   //[UIColor blueColor];
     
     if (nil == self.buttonRedVC) {
@@ -50,10 +54,11 @@
     
     [self addDepartureButton];
     [self addArrivalButton];
+    [self addNewsButton];
 
     self.dataManager = [DataManager shared];
     [self.dataManager loadData];
-    
+
     [self addNotifications];
 }
 
@@ -65,15 +70,18 @@
     [super viewDidLayoutSubviews];
     
     CGFloat width  = self.view.frame.size.width;
-    
+    CGFloat height  = self.view.frame.size.height;
+
     CGFloat x = 50.0;
     CGFloat y = 10.0;
     CGFloat w = width - x * 2;
     CGFloat indent = 10.0;
+    CGFloat hButton = 50.0;
     
-    self.buttonDeparture.frame = CGRectMake(x, y, w, 50.0);
+    self.buttonDeparture.frame = CGRectMake(x, y, w, hButton);
     y += self.buttonDeparture.frame.size.height + indent;
-    self.buttonArrival.frame = CGRectMake(x, y, w, 50.0);
+    self.buttonArrival.frame = CGRectMake(x, y, w, hButton);
+    self.buttonNews.frame = CGRectMake(x, height - indent * 2 - hButton, w, hButton);
 }
 
 #pragma mark - Colored controllers
@@ -116,6 +124,17 @@
     self.buttonArrival = button;
 }
 
+- (void)addNewsButton {
+    if (nil != self.buttonNews) { return; }
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
+    [button setTitle:@"BREAKING NEWS" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor blueColor];
+    button.tintColor = [UIColor whiteColor];
+    [button addTarget:self action:@selector(newsButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    self.buttonNews = button;
+}
+
 - (void)fromtoButtonTap:(UIButton *)sender
 {
     PlaceViewController *placeViewController;
@@ -126,6 +145,12 @@
     }
     placeViewController.delegate = self;
     [self.navigationController pushViewController: placeViewController animated:YES];
+}
+
+- (void)newsButtonTap:(UIButton *)sender
+{
+    NewsViewController *newsVC = [NewsViewController new];
+    [self.navigationController pushViewController: newsVC animated:YES];
 }
 
 #pragma mark - Notifications

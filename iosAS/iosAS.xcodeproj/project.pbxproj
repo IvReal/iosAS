@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		AA19CF4323329FF700F600E0 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF4223329FF700F600E0 /* PlaceViewController.m */; };
 		AA19CF472333701100F600E0 /* PlaceTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF462333701100F600E0 /* PlaceTableCell.m */; };
+		AA19CF4A2334F04700F600E0 /* NewsItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF492334F04700F600E0 /* NewsItem.m */; };
+		AA19CF4D2334F3F800F600E0 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF4C2334F3F800F600E0 /* APIManager.m */; };
+		AA19CF5023351B4E00F600E0 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF4F23351B4E00F600E0 /* NewsViewController.m */; };
+		AA19CF5323351FFF00F600E0 /* NewsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF5223351FFF00F600E0 /* NewsTableCell.m */; };
+		AA19CF56233659F300F600E0 /* NewsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF55233659F300F600E0 /* NewsItemViewController.m */; };
 		AA962CAD232EC398006E5F19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAC232EC398006E5F19 /* AppDelegate.m */; };
 		AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAF232EC398006E5F19 /* MainViewController.m */; };
 		AA962CB5232EC399006E5F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA962CB4232EC399006E5F19 /* Assets.xcassets */; };
@@ -30,6 +35,16 @@
 		AA19CF4223329FF700F600E0 /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		AA19CF452333701100F600E0 /* PlaceTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceTableCell.h; sourceTree = "<group>"; };
 		AA19CF462333701100F600E0 /* PlaceTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceTableCell.m; sourceTree = "<group>"; };
+		AA19CF482334F04700F600E0 /* NewsItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsItem.h; sourceTree = "<group>"; };
+		AA19CF492334F04700F600E0 /* NewsItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsItem.m; sourceTree = "<group>"; };
+		AA19CF4B2334F3F800F600E0 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		AA19CF4C2334F3F800F600E0 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		AA19CF4E23351B4E00F600E0 /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		AA19CF4F23351B4E00F600E0 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		AA19CF5123351FFF00F600E0 /* NewsTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsTableCell.h; sourceTree = "<group>"; };
+		AA19CF5223351FFF00F600E0 /* NewsTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsTableCell.m; sourceTree = "<group>"; };
+		AA19CF54233659F300F600E0 /* NewsItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsItemViewController.h; sourceTree = "<group>"; };
+		AA19CF55233659F300F600E0 /* NewsItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsItemViewController.m; sourceTree = "<group>"; };
 		AA962CA8232EC398006E5F19 /* iosAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA962CAB232EC398006E5F19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA962CAC232EC398006E5F19 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +88,8 @@
 			children = (
 				AA19CF452333701100F600E0 /* PlaceTableCell.h */,
 				AA19CF462333701100F600E0 /* PlaceTableCell.m */,
+				AA19CF5123351FFF00F600E0 /* NewsTableCell.h */,
+				AA19CF5223351FFF00F600E0 /* NewsTableCell.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -122,6 +139,10 @@
 				AA962CCB2331163C006E5F19 /* Test2ViewController.m */,
 				AA19CF4123329FF700F600E0 /* PlaceViewController.h */,
 				AA19CF4223329FF700F600E0 /* PlaceViewController.m */,
+				AA19CF4E23351B4E00F600E0 /* NewsViewController.h */,
+				AA19CF4F23351B4E00F600E0 /* NewsViewController.m */,
+				AA19CF54233659F300F600E0 /* NewsItemViewController.h */,
+				AA19CF55233659F300F600E0 /* NewsItemViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +156,8 @@
 				AA962CF423327DD2006E5F19 /* City.m */,
 				AA962CF623327E05006E5F19 /* Airport.h */,
 				AA962CF723327E05006E5F19 /* Airport.m */,
+				AA19CF482334F04700F600E0 /* NewsItem.h */,
+				AA19CF492334F04700F600E0 /* NewsItem.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +170,8 @@
 				AA962CFE233288D7006E5F19 /* Countries.json */,
 				AA962CFA2332873C006E5F19 /* DataManager.h */,
 				AA962CFB2332873C006E5F19 /* DataManager.m */,
+				AA19CF4B2334F3F800F600E0 /* APIManager.h */,
+				AA19CF4C2334F3F800F600E0 /* APIManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -226,14 +251,19 @@
 				AA962CFC2332873C006E5F19 /* DataManager.m in Sources */,
 				AA19CF4323329FF700F600E0 /* PlaceViewController.m in Sources */,
 				AA962CF223327DA8006E5F19 /* Country.m in Sources */,
+				AA19CF4D2334F3F800F600E0 /* APIManager.m in Sources */,
 				AA19CF472333701100F600E0 /* PlaceTableCell.m in Sources */,
 				AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */,
 				AA962CF523327DD2006E5F19 /* City.m in Sources */,
+				AA19CF56233659F300F600E0 /* NewsItemViewController.m in Sources */,
 				AA962CC9233115F7006E5F19 /* Test1ViewController.m in Sources */,
 				AA962CC4232FEF27006E5F19 /* ColoredViewController.m in Sources */,
+				AA19CF4A2334F04700F600E0 /* NewsItem.m in Sources */,
 				AA962CCC2331163C006E5F19 /* Test2ViewController.m in Sources */,
+				AA19CF5023351B4E00F600E0 /* NewsViewController.m in Sources */,
 				AA962CBB232EC399006E5F19 /* main.m in Sources */,
 				AA962CAD232EC398006E5F19 /* AppDelegate.m in Sources */,
+				AA19CF5323351FFF00F600E0 /* NewsTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
