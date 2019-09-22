@@ -26,9 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"News";
     self.view.backgroundColor = [UIColor whiteColor];
     [self addLabel];
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
     NSString *allNewsItemText = [NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%@\n\n%@",
