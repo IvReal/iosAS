@@ -32,8 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -47,12 +45,6 @@
     [self changeSource];
     
     self.title = _placeType == PlaceTypeDeparture ? @"From" : @"To";
-    
-    UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle: self.title
-        style: UIBarButtonItemStyleDone
-        target: self
-        action: nil];
-    self.navigationItem.rightBarButtonItem = btn;
 }
 
 - (void)viewDidLayoutSubviews {
