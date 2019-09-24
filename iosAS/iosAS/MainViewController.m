@@ -8,9 +8,12 @@
 #import "Test1ViewController.h"
 #import "Test2ViewController.h"
 #import "NewsViewController.h"
+#import "MapViewController.h"
 #import "DataManager.h"
 #import "APIManager.h"
 #import "PlaceViewController.h"
+#import "LocationService.h"
+#import <MapKit/MapKit.h>
 
 @interface MainViewController () <PlaceViewControllerDelegate>
 
@@ -21,6 +24,7 @@
 @property (nonatomic, weak, readwrite) UIButton* buttonArrival;
 @property (nonatomic, weak, readwrite) UIButton* buttonSearch;
 @property (nonatomic, weak, readwrite) UIButton* buttonNews;
+@property (nonatomic, weak, readwrite) UIButton* buttonMap;
 
 @property (nonatomic, weak, readwrite) DataManager* dataManager;
 
@@ -55,6 +59,7 @@
     [self addDepartureButton];
     [self addArrivalButton];
     [self addNewsButton];
+    [self addMapButton];
 
     self.dataManager = [DataManager shared];
     [self.dataManager loadData];
@@ -81,7 +86,12 @@
     self.buttonDeparture.frame = CGRectMake(x, y, w, hButton);
     y += self.buttonDeparture.frame.size.height + indent;
     self.buttonArrival.frame = CGRectMake(x, y, w, hButton);
-    self.buttonNews.frame = CGRectMake(x, height - indent * 2 - hButton, w, hButton);
+    
+    y = height - indent * 2 - hButton;
+    self.buttonNews.frame = CGRectMake(x, y, w, hButton);
+    y -= indent + hButton;
+    self.buttonMap.frame = CGRectMake(x, y, w, hButton);
+
 }
 
 #pragma mark - Colored controllers
@@ -135,6 +145,17 @@
     self.buttonNews = button;
 }
 
+- (void)addMapButton {
+    if (nil != self.buttonMap) { return; }
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
+    [button setTitle:@"MAP" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor blueColor];
+    button.tintColor = [UIColor whiteColor];
+    [button addTarget:self action:@selector(mapButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    self.buttonMap = button;
+}
+
 - (void)fromtoButtonTap:(UIButton *)sender
 {
     PlaceViewController *placeViewController;
@@ -153,6 +174,12 @@
     [self.navigationController pushViewController: newsVC animated:YES];
 }
 
+- (void)mapButtonTap:(UIButton *)sender
+{
+    MapViewController *mapVC = [MapViewController new];
+    [self.navigationController pushViewController: mapVC animated:YES];
+}
+
 #pragma mark - Notifications
 
 - (void) addNotifications {
@@ -168,6 +195,10 @@
                                              selector: @selector(didReceiveAirports)
                                                  name: [self.dataManager didLoadAirportsNotificationName]
                                                object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(updateCurrentLocation:)
+                                                 name: kLocationServiceDidUpdateCurrentLocation
+                                               object: nil];
 }
 
 - (void) removeNotifications {
@@ -180,6 +211,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: [self.dataManager didLoadAirportsNotificationName]
                                                   object: nil];
+    [[NSNotificationCenter defaultCenter] removeObserver: self
+                                                    name: kLocationServiceDidUpdateCurrentLocation
+                                                  object: nil];
 }
 
 - (void) didReceiveCountries {
@@ -188,10 +222,34 @@
 
 - (void) didReceiveCities {
     NSLog(@"didReceiveCities %lu", self.dataManager.cities.count);
+    [[LocationService shared] requestCurrentLocation];
 }
 
 - (void) didReceiveAirports {
     NSLog(@"didReceiveAirports %lu", self.dataManager.airports.count);
+}
+
+- (void)updateCurrentLocation:(NSNotification *)notification {
+    CLLocation *currentLocation = notification.object;
+    City *city = [[LocationService shared] cityByLocation: [DataManager shared].cities location:currentLocation];
+    if (NO == [city isKindOfClass:[City class]]) return;
+    [self.buttonDeparture setTitle:[city.name uppercaseString] forState:UIControlStateNormal];
+    [self addressFromLocation:currentLocation];
+}
+
+- (void)addressFromLocation:(CLLocation *)location {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if ([placemarks count] > 0) {
+            NSMutableString *address = [NSMutableString new];
+            for (MKPlacemark *placemark in placemarks) {
+                [address appendString:placemark.name];
+            }
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Your location address" message:address preferredStyle: UIAlertControllerStyleAlert];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Close" style:(UIAlertActionStyleDefault) handler:nil]];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
 }
 
 #pragma mark - PlaceViewControllerDelegate
