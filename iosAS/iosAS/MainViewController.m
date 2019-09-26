@@ -3,28 +3,19 @@
 //  Created by Iv on 15/09/2019.
 //  Copyright © 2019 Iv. All rights reserved.
 
+#import <MapKit/MapKit.h>
 #import "MainViewController.h"
-#import "ColoredViewController.h"
-#import "Test1ViewController.h"
-#import "Test2ViewController.h"
-#import "NewsViewController.h"
-#import "MapViewController.h"
 #import "DataManager.h"
 #import "APIManager.h"
 #import "PlaceViewController.h"
 #import "LocationService.h"
-#import <MapKit/MapKit.h>
 
 @interface MainViewController () <PlaceViewControllerDelegate>
-
-@property (nonatomic, weak, readwrite) UIBarButtonItem* buttonRedVC;
-@property (nonatomic, weak, readwrite) UIBarButtonItem* buttonYellowVC;
 
 @property (nonatomic, weak, readwrite) UIButton* buttonDeparture;
 @property (nonatomic, weak, readwrite) UIButton* buttonArrival;
 @property (nonatomic, weak, readwrite) UIButton* buttonSearch;
-@property (nonatomic, weak, readwrite) UIButton* buttonNews;
-@property (nonatomic, weak, readwrite) UIButton* buttonMap;
+@property (nonatomic, weak, readwrite) UILabel* labelAddress;
 
 @property (nonatomic, weak, readwrite) DataManager* dataManager;
 
@@ -35,31 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.prefersLargeTitles = YES;
-    [self setTitle: @"Main"];
-    self.view.backgroundColor = [UIColor colorWithRed:0.0 green:255.0 blue:255.0 alpha:1.0];   //[UIColor blueColor];
-    
-    if (nil == self.buttonRedVC) {
-        UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle: @"RedVC"
-                                                                       style: UIBarButtonItemStyleDone
-                                                                       target: self
-                                                                       action: @selector(GoToRedVC)];
-        self.navigationItem.rightBarButtonItem = btn;
-        self.buttonRedVC = btn;
-    }
-    if (nil == self.buttonYellowVC) {
-        UIBarButtonItem* btn = [[UIBarButtonItem alloc] initWithTitle: @"YellowVC"
-                                                                       style: UIBarButtonItemStyleDone
-                                                                       target: self
-                                                                       action: @selector(GoToYellowVC)];
-        self.navigationItem.leftBarButtonItem = btn;
-        self.buttonYellowVC = btn;
-    }
+    [self setTitle: @"Search"];
+    // PowderBlue #B0E0E6  176, 224, 230
+    self.view.backgroundColor = [UIColor colorWithRed:176/255.0f green:224/255.0f blue:230/255.0f alpha:1.0];
     
     [self addDepartureButton];
     [self addArrivalButton];
-    [self addNewsButton];
-    [self addMapButton];
+    [self addAddressLabel];
 
     self.dataManager = [DataManager shared];
     [self.dataManager loadData];
@@ -86,31 +59,11 @@
     self.buttonDeparture.frame = CGRectMake(x, y, w, hButton);
     y += self.buttonDeparture.frame.size.height + indent;
     self.buttonArrival.frame = CGRectMake(x, y, w, hButton);
-    
-    y = height - indent * 2 - hButton;
-    self.buttonNews.frame = CGRectMake(x, y, w, hButton);
-    y -= indent + hButton;
-    self.buttonMap.frame = CGRectMake(x, y, w, hButton);
-
+    y += self.buttonArrival.frame.size.height + indent;
+    self.labelAddress.frame = CGRectMake(x, y, w, 100.0);
 }
 
-#pragma mark - Colored controllers
-
-- (void) GoToRedVC {
-    Test1ViewController* vc = [Test1ViewController new];
-    vc.caption = @"RedVC";
-    vc.color = [UIColor redColor];
-    [self.navigationController pushViewController: vc animated: YES];
-}
-
-- (void) GoToYellowVC {
-    Test2ViewController* vc = [Test2ViewController new];
-    vc.caption = @"YellowVC";
-    vc.color = [UIColor yellowColor];
-    [self.navigationController pushViewController: vc animated: YES];
-}
-
-#pragma mark - Buttons
+#pragma mark - Controls
 
 - (void)addDepartureButton {
     if (nil != self.buttonDeparture) { return; }
@@ -134,28 +87,6 @@
     self.buttonArrival = button;
 }
 
-- (void)addNewsButton {
-    if (nil != self.buttonNews) { return; }
-    UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
-    [button setTitle:@"BREAKING NEWS" forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor blueColor];
-    button.tintColor = [UIColor whiteColor];
-    [button addTarget:self action:@selector(newsButtonTap:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-    self.buttonNews = button;
-}
-
-- (void)addMapButton {
-    if (nil != self.buttonMap) { return; }
-    UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
-    [button setTitle:@"MAP" forState:UIControlStateNormal];
-    button.backgroundColor = [UIColor blueColor];
-    button.tintColor = [UIColor whiteColor];
-    [button addTarget:self action:@selector(mapButtonTap:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
-    self.buttonMap = button;
-}
-
 - (void)fromtoButtonTap:(UIButton *)sender
 {
     PlaceViewController *placeViewController;
@@ -168,16 +99,17 @@
     [self.navigationController pushViewController: placeViewController animated:YES];
 }
 
-- (void)newsButtonTap:(UIButton *)sender
-{
-    NewsViewController *newsVC = [NewsViewController new];
-    [self.navigationController pushViewController: newsVC animated:YES];
-}
-
-- (void)mapButtonTap:(UIButton *)sender
-{
-    MapViewController *mapVC = [MapViewController new];
-    [self.navigationController pushViewController: mapVC animated:YES];
+- (void)addAddressLabel {
+    if (nil != self.labelAddress) { return; }
+    UILabel *label = [[UILabel alloc] init];
+    label.numberOfLines = 0;
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.font = [UIFont systemFontOfSize:20.0 weight: UIFontWeightRegular];
+    label.textColor = [UIColor darkGrayColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"";
+    [self.view addSubview:label];
+    self.labelAddress = label;
 }
 
 #pragma mark - Notifications
@@ -241,13 +173,16 @@
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if ([placemarks count] > 0) {
-            NSMutableString *address = [NSMutableString new];
+            NSMutableString *address = [[NSMutableString alloc] initWithString:@"Your location is\n"];
             for (MKPlacemark *placemark in placemarks) {
                 [address appendString:placemark.name];
             }
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Your location address" message:address preferredStyle: UIAlertControllerStyleAlert];
+            /*
+             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Your location address" message:address preferredStyle: UIAlertControllerStyleAlert];
             [alertController addAction:[UIAlertAction actionWithTitle:@"Close" style:(UIAlertActionStyleDefault) handler:nil]];
             [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+             */
+            self.labelAddress.text = address;
         }
     }];
 }

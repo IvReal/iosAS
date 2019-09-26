@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Cities";
+    self.title = @"Map";
     
     _mapView = [MKMapView new];
     _mapView.showsUserLocation = YES;
