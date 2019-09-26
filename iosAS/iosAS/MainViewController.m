@@ -48,7 +48,7 @@
     [super viewDidLayoutSubviews];
     
     CGFloat width  = self.view.frame.size.width;
-    CGFloat height  = self.view.frame.size.height;
+    //CGFloat height  = self.view.frame.size.height;
 
     CGFloat x = 50.0;
     CGFloat y = 10.0;
