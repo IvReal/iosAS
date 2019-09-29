@@ -8,6 +8,7 @@
 #import "DataManager.h"
 #import "APIManager.h"
 #import "PlaceViewController.h"
+#import "Place2ViewController.h"
 #import "LocationService.h"
 
 @interface MainViewController () <PlaceViewControllerDelegate>
@@ -89,14 +90,17 @@
 
 - (void)fromtoButtonTap:(UIButton *)sender
 {
-    PlaceViewController *placeViewController;
     if ([sender isEqual:self.buttonDeparture]) {
+        PlaceViewController *placeViewController;
         placeViewController = [[PlaceViewController alloc] initWithType: PlaceTypeDeparture];
+        placeViewController.delegate = self;
+        [self.navigationController pushViewController: placeViewController animated:YES];
     } else {
-        placeViewController = [[PlaceViewController alloc] initWithType: PlaceTypeArrival];
+        Place2ViewController *placeViewController;
+        placeViewController = [[Place2ViewController alloc] initWithType: PlaceTypeArrival];
+        //placeViewController.delegate = self;
+        [self.navigationController pushViewController: placeViewController animated:YES];
     }
-    placeViewController.delegate = self;
-    [self.navigationController pushViewController: placeViewController animated:YES];
 }
 
 - (void)addAddressLabel {

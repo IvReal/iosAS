@@ -18,6 +18,8 @@
 		AA19CF5C233925FE00F600E0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF5B233925FE00F600E0 /* MapViewController.m */; };
 		AA5A5887233CF8BD00F5C946 /* MainTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A5886233CF8BD00F5C946 /* MainTabController.m */; };
 		AA5A588C233D077C00F5C946 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A588B233D077C00F5C946 /* OtherViewController.m */; };
+		AA5A588F233E385500F5C946 /* PlaceCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A588E233E385500F5C946 /* PlaceCollectionCell.m */; };
+		AA5A5892233E6BC000F5C946 /* Place2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A5891233E6BC000F5C946 /* Place2ViewController.m */; };
 		AA962CAD232EC398006E5F19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAC232EC398006E5F19 /* AppDelegate.m */; };
 		AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAF232EC398006E5F19 /* MainViewController.m */; };
 		AA962CB5232EC399006E5F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA962CB4232EC399006E5F19 /* Assets.xcassets */; };
@@ -57,6 +59,10 @@
 		AA5A5886233CF8BD00F5C946 /* MainTabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabController.m; sourceTree = "<group>"; };
 		AA5A588A233D077C00F5C946 /* OtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
 		AA5A588B233D077C00F5C946 /* OtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		AA5A588D233E385500F5C946 /* PlaceCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceCollectionCell.h; sourceTree = "<group>"; };
+		AA5A588E233E385500F5C946 /* PlaceCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceCollectionCell.m; sourceTree = "<group>"; };
+		AA5A5890233E6BC000F5C946 /* Place2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Place2ViewController.h; sourceTree = "<group>"; };
+		AA5A5891233E6BC000F5C946 /* Place2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Place2ViewController.m; sourceTree = "<group>"; };
 		AA962CA8232EC398006E5F19 /* iosAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA962CAB232EC398006E5F19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA962CAC232EC398006E5F19 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 				AA19CF462333701100F600E0 /* PlaceTableCell.m */,
 				AA19CF5123351FFF00F600E0 /* NewsTableCell.h */,
 				AA19CF5223351FFF00F600E0 /* NewsTableCell.m */,
+				AA5A588D233E385500F5C946 /* PlaceCollectionCell.h */,
+				AA5A588E233E385500F5C946 /* PlaceCollectionCell.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -175,6 +183,8 @@
 				AA5A5888233D06BD00F5C946 /* Other */,
 				AA19CF4123329FF700F600E0 /* PlaceViewController.h */,
 				AA19CF4223329FF700F600E0 /* PlaceViewController.m */,
+				AA5A5890233E6BC000F5C946 /* Place2ViewController.h */,
+				AA5A5891233E6BC000F5C946 /* Place2ViewController.m */,
 				AA19CF5A233925FE00F600E0 /* MapViewController.h */,
 				AA19CF5B233925FE00F600E0 /* MapViewController.m */,
 			);
@@ -286,7 +296,9 @@
 				AA962CF823327E05006E5F19 /* Airport.m in Sources */,
 				AA962CFC2332873C006E5F19 /* DataManager.m in Sources */,
 				AA19CF4323329FF700F600E0 /* PlaceViewController.m in Sources */,
+				AA5A588F233E385500F5C946 /* PlaceCollectionCell.m in Sources */,
 				AA962CF223327DA8006E5F19 /* Country.m in Sources */,
+				AA5A5892233E6BC000F5C946 /* Place2ViewController.m in Sources */,
 				AA19CF5923391C8800F600E0 /* LocationService.m in Sources */,
 				AA19CF4D2334F3F800F600E0 /* APIManager.m in Sources */,
 				AA19CF472333701100F600E0 /* PlaceTableCell.m in Sources */,
