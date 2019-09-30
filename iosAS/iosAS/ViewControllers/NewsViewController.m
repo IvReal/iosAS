@@ -34,7 +34,7 @@
     self.navigationItem.titleView = _segmentedControl;
     _segmentedControl.selectedSegmentIndex = 0;
     
-    self.title = @"Breaking News";
+    self.title = @"News";
     
     self.apiManager = [APIManager shared];
     [self changeCountry];

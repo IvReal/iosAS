@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import "MainTabController.h"
 
 @interface AppDelegate ()
 
@@ -22,11 +22,11 @@
     CGRect windowFrame = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame: windowFrame];
     
-    MainViewController *mainViewController = [[MainViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController: mainViewController];
-    navigationController.navigationBar.translucent = NO;
+    MainTabController *mainTab = [MainTabController new];
+    self.window.rootViewController = mainTab;
     
-    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+
     [self.window makeKeyAndVisible];
 
     return YES;

@@ -16,6 +16,10 @@
 		AA19CF56233659F300F600E0 /* NewsItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF55233659F300F600E0 /* NewsItemViewController.m */; };
 		AA19CF5923391C8800F600E0 /* LocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF5823391C8800F600E0 /* LocationService.m */; };
 		AA19CF5C233925FE00F600E0 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19CF5B233925FE00F600E0 /* MapViewController.m */; };
+		AA5A5887233CF8BD00F5C946 /* MainTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A5886233CF8BD00F5C946 /* MainTabController.m */; };
+		AA5A588C233D077C00F5C946 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A588B233D077C00F5C946 /* OtherViewController.m */; };
+		AA5A588F233E385500F5C946 /* PlaceCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A588E233E385500F5C946 /* PlaceCollectionCell.m */; };
+		AA5A5892233E6BC000F5C946 /* Place2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A5891233E6BC000F5C946 /* Place2ViewController.m */; };
 		AA962CAD232EC398006E5F19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAC232EC398006E5F19 /* AppDelegate.m */; };
 		AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAF232EC398006E5F19 /* MainViewController.m */; };
 		AA962CB5232EC399006E5F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA962CB4232EC399006E5F19 /* Assets.xcassets */; };
@@ -51,6 +55,14 @@
 		AA19CF5823391C8800F600E0 /* LocationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationService.m; sourceTree = "<group>"; };
 		AA19CF5A233925FE00F600E0 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		AA19CF5B233925FE00F600E0 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		AA5A5885233CF8BC00F5C946 /* MainTabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabController.h; sourceTree = "<group>"; };
+		AA5A5886233CF8BD00F5C946 /* MainTabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabController.m; sourceTree = "<group>"; };
+		AA5A588A233D077C00F5C946 /* OtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		AA5A588B233D077C00F5C946 /* OtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		AA5A588D233E385500F5C946 /* PlaceCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceCollectionCell.h; sourceTree = "<group>"; };
+		AA5A588E233E385500F5C946 /* PlaceCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceCollectionCell.m; sourceTree = "<group>"; };
+		AA5A5890233E6BC000F5C946 /* Place2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Place2ViewController.h; sourceTree = "<group>"; };
+		AA5A5891233E6BC000F5C946 /* Place2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Place2ViewController.m; sourceTree = "<group>"; };
 		AA962CA8232EC398006E5F19 /* iosAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA962CAB232EC398006E5F19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA962CAC232EC398006E5F19 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,8 +108,36 @@
 				AA19CF462333701100F600E0 /* PlaceTableCell.m */,
 				AA19CF5123351FFF00F600E0 /* NewsTableCell.h */,
 				AA19CF5223351FFF00F600E0 /* NewsTableCell.m */,
+				AA5A588D233E385500F5C946 /* PlaceCollectionCell.h */,
+				AA5A588E233E385500F5C946 /* PlaceCollectionCell.m */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		AA5A5888233D06BD00F5C946 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AA962CC2232FEF27006E5F19 /* ColoredViewController.h */,
+				AA962CC3232FEF27006E5F19 /* ColoredViewController.m */,
+				AA962CC7233115F7006E5F19 /* Test1ViewController.h */,
+				AA962CC8233115F7006E5F19 /* Test1ViewController.m */,
+				AA962CCA2331163C006E5F19 /* Test2ViewController.h */,
+				AA962CCB2331163C006E5F19 /* Test2ViewController.m */,
+				AA5A588A233D077C00F5C946 /* OtherViewController.h */,
+				AA5A588B233D077C00F5C946 /* OtherViewController.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		AA5A5889233D070D00F5C946 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				AA19CF4E23351B4E00F600E0 /* NewsViewController.h */,
+				AA19CF4F23351B4E00F600E0 /* NewsViewController.m */,
+				AA19CF54233659F300F600E0 /* NewsItemViewController.h */,
+				AA19CF55233659F300F600E0 /* NewsItemViewController.m */,
+			);
+			name = News;
 			sourceTree = "<group>";
 		};
 		AA962C9F232EC398006E5F19 = {
@@ -125,6 +165,8 @@
 				AA962CC623311581006E5F19 /* ViewControllers */,
 				AA962CAB232EC398006E5F19 /* AppDelegate.h */,
 				AA962CAC232EC398006E5F19 /* AppDelegate.m */,
+				AA5A5885233CF8BC00F5C946 /* MainTabController.h */,
+				AA5A5886233CF8BD00F5C946 /* MainTabController.m */,
 				AA962CAE232EC398006E5F19 /* MainViewController.h */,
 				AA962CAF232EC398006E5F19 /* MainViewController.m */,
 				AA962CB4232EC399006E5F19 /* Assets.xcassets */,
@@ -137,18 +179,12 @@
 		AA962CC623311581006E5F19 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA962CC2232FEF27006E5F19 /* ColoredViewController.h */,
-				AA962CC3232FEF27006E5F19 /* ColoredViewController.m */,
-				AA962CC7233115F7006E5F19 /* Test1ViewController.h */,
-				AA962CC8233115F7006E5F19 /* Test1ViewController.m */,
-				AA962CCA2331163C006E5F19 /* Test2ViewController.h */,
-				AA962CCB2331163C006E5F19 /* Test2ViewController.m */,
+				AA5A5889233D070D00F5C946 /* News */,
+				AA5A5888233D06BD00F5C946 /* Other */,
 				AA19CF4123329FF700F600E0 /* PlaceViewController.h */,
 				AA19CF4223329FF700F600E0 /* PlaceViewController.m */,
-				AA19CF4E23351B4E00F600E0 /* NewsViewController.h */,
-				AA19CF4F23351B4E00F600E0 /* NewsViewController.m */,
-				AA19CF54233659F300F600E0 /* NewsItemViewController.h */,
-				AA19CF55233659F300F600E0 /* NewsItemViewController.m */,
+				AA5A5890233E6BC000F5C946 /* Place2ViewController.h */,
+				AA5A5891233E6BC000F5C946 /* Place2ViewController.m */,
 				AA19CF5A233925FE00F600E0 /* MapViewController.h */,
 				AA19CF5B233925FE00F600E0 /* MapViewController.m */,
 			);
@@ -260,14 +296,18 @@
 				AA962CF823327E05006E5F19 /* Airport.m in Sources */,
 				AA962CFC2332873C006E5F19 /* DataManager.m in Sources */,
 				AA19CF4323329FF700F600E0 /* PlaceViewController.m in Sources */,
+				AA5A588F233E385500F5C946 /* PlaceCollectionCell.m in Sources */,
 				AA962CF223327DA8006E5F19 /* Country.m in Sources */,
+				AA5A5892233E6BC000F5C946 /* Place2ViewController.m in Sources */,
 				AA19CF5923391C8800F600E0 /* LocationService.m in Sources */,
 				AA19CF4D2334F3F800F600E0 /* APIManager.m in Sources */,
 				AA19CF472333701100F600E0 /* PlaceTableCell.m in Sources */,
 				AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */,
 				AA962CF523327DD2006E5F19 /* City.m in Sources */,
 				AA19CF56233659F300F600E0 /* NewsItemViewController.m in Sources */,
+				AA5A5887233CF8BD00F5C946 /* MainTabController.m in Sources */,
 				AA962CC9233115F7006E5F19 /* Test1ViewController.m in Sources */,
+				AA5A588C233D077C00F5C946 /* OtherViewController.m in Sources */,
 				AA962CC4232FEF27006E5F19 /* ColoredViewController.m in Sources */,
 				AA19CF4A2334F04700F600E0 /* NewsItem.m in Sources */,
 				AA962CCC2331163C006E5F19 /* Test2ViewController.m in Sources */,
