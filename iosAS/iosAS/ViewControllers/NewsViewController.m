@@ -50,7 +50,6 @@
 
 - (void)changeCountry
 {
-    //_currentArray = [[DataManager shared] airports];
     __weak typeof(self) weakSelf = self;
     NSString *country = [self.segmentedControl titleForSegmentAtIndex:self.segmentedControl.selectedSegmentIndex];
     [self.apiManager getNewsForCountry:country completion:^(NSArray<NewsItem *> * _Nonnull news) {

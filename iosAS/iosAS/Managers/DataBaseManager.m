@@ -71,10 +71,15 @@
     return entity != nil;
 }
 
-- (void) loadFavoriteMapPrices: (DataBaseManager_MapPriceCompletion) completion {
+- (void)loadFavoriteMapPricesWithSort:(PriceSort)sort completion: (DataBaseManager_MapPriceCompletion) completion {
     [self.container performBackgroundTask:^(NSManagedObjectContext * context) {
         NSFetchRequest* fetchRequest = [MapPriceEntity fetchRequest];
-        fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"destinationIATA" ascending: YES] ];
+        if (sort == PriceSortDate) {
+            fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"departDate" ascending: YES] ];
+        }
+        else if (sort == PriceSortPrice) {
+            fetchRequest.sortDescriptors = @[ [NSSortDescriptor sortDescriptorWithKey: @"value" ascending: YES] ];
+        }
         
         NSError* error = nil;
         NSArray* result = [context executeFetchRequest: fetchRequest error: &error];

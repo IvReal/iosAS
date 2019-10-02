@@ -9,6 +9,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class MapPrice;
 
+typedef enum PriceSort {
+    PriceSortDate,
+    PriceSortPrice
+} PriceSort;
+
+
 typedef void(^DataBaseManager_MapPriceCompletion)(NSArray<MapPrice*>*);
 
 @interface DataBaseManager : NSObject
@@ -18,7 +24,7 @@ typedef void(^DataBaseManager_MapPriceCompletion)(NSArray<MapPrice*>*);
 - (void)addMapPriceToFavorite:(MapPrice *)price;
 - (void)removeMapPriceFromFavorite:(MapPrice *)price;
 - (BOOL)isFavorite:(MapPrice *)price;
-- (void)loadFavoriteMapPrices:(DataBaseManager_MapPriceCompletion) completion;
+- (void)loadFavoriteMapPricesWithSort:(PriceSort)sort completion: (DataBaseManager_MapPriceCompletion) completion;
 
 @end
 

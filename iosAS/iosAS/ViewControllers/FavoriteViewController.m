@@ -14,6 +14,7 @@
 @interface FavoriteViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) NSArray *currentArray;
 
 @end
@@ -32,6 +33,12 @@
     _tableView.dataSource = self;
     _tableView.backgroundColor = self.view.backgroundColor;
     [self.view addSubview:_tableView];
+    
+    _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"By Date", @"By Price"]];
+    [_segmentedControl addTarget:self action:@selector(changeSort) forControlEvents:UIControlEventValueChanged];
+    _segmentedControl.tintColor = [UIColor blueColor];
+    self.navigationItem.titleView = _segmentedControl;
+    _segmentedControl.selectedSegmentIndex = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,10 +51,16 @@
 }
 
 - (void)reloadPrices {
-    [[DataBaseManager shared] loadFavoriteMapPrices:^(NSArray<MapPrice*>* prices) {
+    PriceSort ps = _segmentedControl.selectedSegmentIndex == 0 ? PriceSortDate : PriceSortPrice;
+    [[DataBaseManager shared] loadFavoriteMapPricesWithSort: ps completion:^(NSArray<MapPrice*>* prices) {
         self.currentArray = prices;
         [self.tableView reloadData];
     }];
+}
+
+- (void)changeSort
+{
+    [self reloadPrices];
 }
 
 #pragma mark - UITableViewDataSource
