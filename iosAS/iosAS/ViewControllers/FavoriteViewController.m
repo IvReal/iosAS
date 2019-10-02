@@ -75,7 +75,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:FavReuseIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:FavReuseIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     MapPrice *price = [_currentArray objectAtIndex:indexPath.row];
     if (price.originCity == nil && price.destinationCity == nil) {
