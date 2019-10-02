@@ -5,6 +5,7 @@
 
 #import "APIManager.h"
 #import "NewsItem.h"
+#import "MapPrice.h"
 
 @implementation APIManager
 
@@ -45,6 +46,33 @@
         }
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             completion(news);
+        }];
+    }];
+    [dataTask resume];
+}
+
+- (void) getMapPricesFrom: (NSString*) IATA completion: (APIManager_GetMapPricesCompletion) completion {
+    NSURLSession* session = [NSURLSession sharedSession];
+    NSString* urlString = [NSString stringWithFormat: @"https://map.aviasales.ru/prices.json?origin_iata=%@", IATA];
+    NSURL* url = [NSURL URLWithString: urlString];
+    NSURLRequest* request = [NSURLRequest requestWithURL: url];
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest: request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSArray* json = nil;
+        if (nil != data) {
+            NSError* jsonError;
+            json = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &jsonError];
+        }
+        NSMutableArray<MapPrice*>* prices = [NSMutableArray new];
+        if ([json isKindOfClass: [NSArray class]]) {
+            for (NSDictionary* dictionary in json) {
+                if (NO == [dictionary isKindOfClass: [NSDictionary class]]) { continue; }
+                MapPrice* object = [MapPrice createWithDictionary: dictionary];
+                if (NO == [object isKindOfClass: [MapPrice class]]) { continue; }
+                [prices addObject: object];
+            }
+        }
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            completion(prices);
         }];
     }];
     [dataTask resume];

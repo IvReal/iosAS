@@ -114,6 +114,12 @@
     return self.actualArray.count;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    DataSourceType dataType = (int)_segmentedControl.selectedSegmentIndex;
+    [self.delegate selectPlace:[_currentArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(nonnull UISearchController *)searchController {

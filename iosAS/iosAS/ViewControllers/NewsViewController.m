@@ -26,6 +26,7 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     [self.view addSubview:_tableView];
     
     _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"ru", @"ua", @"de", @"gb", @"us"]];
@@ -35,7 +36,9 @@
     _segmentedControl.selectedSegmentIndex = 0;
     
     self.title = @"News";
-    
+    // DarkSeaGreen #8FBC8F 143, 188, 143
+    self.view.backgroundColor = [UIColor colorWithRed:143/255.0f green:188/255.0f blue:143/255.0f alpha:1.0];
+
     self.apiManager = [APIManager shared];
     [self changeCountry];
 }
@@ -66,6 +69,7 @@
     }
     NewsItem *item = [_currentArray objectAtIndex:indexPath.row];
     [cell configureWithTitle:item.title andAuthor:item.author andDate:item.publishedAt];
+    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     return cell;
 }
 

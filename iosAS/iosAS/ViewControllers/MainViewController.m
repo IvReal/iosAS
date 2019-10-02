@@ -49,19 +49,20 @@
     [super viewDidLayoutSubviews];
     
     CGFloat width  = self.view.frame.size.width;
-    //CGFloat height  = self.view.frame.size.height;
+    CGFloat height  = self.view.frame.size.height;
 
-    CGFloat x = 50.0;
-    CGFloat y = 10.0;
-    CGFloat w = width - x * 2;
     CGFloat indent = 10.0;
     CGFloat hButton = 50.0;
+    CGFloat hLabel = 100.0;
+    CGFloat x = 50.0;
+    CGFloat y = (height / 2) - (hButton * 2 + hLabel) / 2;
+    CGFloat w = width - x * 2;
     
     self.buttonDeparture.frame = CGRectMake(x, y, w, hButton);
     y += self.buttonDeparture.frame.size.height + indent;
     self.buttonArrival.frame = CGRectMake(x, y, w, hButton);
     y += self.buttonArrival.frame.size.height + indent;
-    self.labelAddress.frame = CGRectMake(x, y, w, 100.0);
+    self.labelAddress.frame = CGRectMake(x, y, w, hLabel);
 }
 
 #pragma mark - Controls
@@ -98,7 +99,7 @@
     } else {
         Place2ViewController *placeViewController;
         placeViewController = [[Place2ViewController alloc] initWithType: PlaceTypeArrival];
-        //placeViewController.delegate = self;
+        placeViewController.delegate = self;
         [self.navigationController pushViewController: placeViewController animated:YES];
     }
 }
@@ -194,6 +195,24 @@
 #pragma mark - PlaceViewControllerDelegate
 
 - (void)selectPlace:(id)place withType:(PlaceType)placeType andDataType:(DataSourceType)dataType {
+    NSString *title;
+    NSString *iata;
+    if (dataType == DataSourceTypeCity) {
+        City *city = (City *)place;
+        title = city.name;
+        iata = city.code;
+    }
+    else if (dataType == DataSourceTypeAirport) {
+        Airport *airport = (Airport *)place;
+        title = airport.name;
+        iata = airport.cityCode;
+    }
+    if (placeType == PlaceTypeDeparture) {
+        [self.buttonDeparture setTitle:[title uppercaseString] forState:UIControlStateNormal];
+    }
+    else if (placeType == PlaceTypeArrival) {
+        [self.buttonArrival setTitle:[title uppercaseString] forState:UIControlStateNormal];
+    }
 }
 
 @end

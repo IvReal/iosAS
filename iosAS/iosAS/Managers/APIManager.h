@@ -8,14 +8,17 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class NewsItem;
+@class MapPrice;
 
 typedef void (^APIManager_GetNewsCompletion)(NSArray<NewsItem*>*);
+typedef void (^APIManager_GetMapPricesCompletion)(NSArray<MapPrice*>*);
 
 @interface APIManager : NSObject
 
 + (APIManager*) shared;
 
 - (void) getNewsForCountry: (NSString*) country completion: (APIManager_GetNewsCompletion) completion;
+- (void) getMapPricesFrom: (NSString*) IATA completion: (APIManager_GetMapPricesCompletion) completion;
 
 @end
 
