@@ -7,8 +7,6 @@
 #import "PlaceTableCell.h"
 #import "DataManager.h"
 
-#define ReuseIdentifier @"CellIdentifier"
-
 @interface PlaceViewController ()
 
 @property (nonatomic) PlaceType placeType;
@@ -76,21 +74,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle reuseIdentifier:ReuseIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    if (_segmentedControl.selectedSegmentIndex == 0) {
-        City *city = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = city.name;
-        cell.detailTextLabel.text = city.code;
-    }
-    else if (_segmentedControl.selectedSegmentIndex == 1) {
-        Airport *airport = [_currentArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = airport.name;
-        cell.detailTextLabel.text = airport.code;
-    }*/
     NSString* placeCellID = NSStringFromClass([PlaceTableCell class] );
     PlaceTableCell *cell = [tableView dequeueReusableCellWithIdentifier:placeCellID];
     if (!cell) {
@@ -111,7 +94,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DataSourceType dataType = ((int)_segmentedControl.selectedSegmentIndex) + 1;
+    DataSourceType dataType = (int)_segmentedControl.selectedSegmentIndex;
     [self.delegate selectPlace:[_currentArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
     [self.navigationController popViewControllerAnimated:YES];
 }

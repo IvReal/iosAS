@@ -8,6 +8,7 @@
 #import "MapViewController.h"
 #import "NewsViewController.h"
 #import "OtherViewController.h"
+#import "FavoriteViewController.h"
 
 @interface MainTabController ()
 
@@ -32,7 +33,7 @@
     UIViewController* mainViewController = [MainViewController new];
     UITabBarItem* tab1 = [[UITabBarItem alloc] initWithTitle: @"Search" image: nil tag: 0];
     UINavigationController* ncSearch = [[UINavigationController alloc] initWithRootViewController: mainViewController];
-    ncSearch.navigationBar.translucent = NO;
+    //ncSearch.navigationBar.translucent = NO;
     ncSearch.navigationBar.prefersLargeTitles = YES;
     ncSearch.tabBarItem = tab1;
 
@@ -45,12 +46,20 @@
     UIViewController* newsViewController = [NewsViewController new];
     UITabBarItem* tab3 = [[UITabBarItem alloc] initWithTitle: @"News" image: nil tag: 0];
     UINavigationController* ncNews = [[UINavigationController alloc] initWithRootViewController: newsViewController];
-    ncNews.navigationBar.translucent = NO;
+    //ncNews.navigationBar.translucent = NO;
     ncNews.navigationBar.prefersLargeTitles = YES;
     ncNews.tabBarItem = tab3;
 
     // photos - collection view, image picker
-    
+
+    // favorites - table view
+    UIViewController* favViewController = [FavoriteViewController new];
+    UITabBarItem* tab4 = [[UITabBarItem alloc] initWithTitle: @"Favorites" image: nil tag: 0];
+    UINavigationController* ncFav = [[UINavigationController alloc] initWithRootViewController: favViewController];
+    //ncFav.navigationBar.translucent = NO;
+    ncFav.navigationBar.prefersLargeTitles = YES;
+    ncFav.tabBarItem = tab4;
+
     // other - other experiments
     UIViewController* otherViewController = [OtherViewController new];
     UITabBarItem* tab5 = [[UITabBarItem alloc] initWithTitle: @"Other" image: nil tag: 0];
@@ -59,7 +68,7 @@
     ncOther.navigationBar.prefersLargeTitles = YES;
     ncOther.tabBarItem = tab5;
 
-    self.viewControllers = @[ncSearch, mapViewController, ncNews, ncOther];
+    self.viewControllers = @[ncSearch, mapViewController, ncNews, ncFav, ncOther];
 }
 
 @end
