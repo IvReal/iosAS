@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabController.h"
+#import "LocalNotificationManager.h"
 
 @interface AppDelegate ()
 
@@ -27,8 +28,8 @@
     
     [self.window makeKeyAndVisible];
 
-    [self.window makeKeyAndVisible];
-
+    [[LocalNotificationManager shared] requestPermissions];
+    
     return YES;
 }
 

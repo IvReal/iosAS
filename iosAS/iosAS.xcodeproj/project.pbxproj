@@ -26,6 +26,7 @@
 		AA5A58AE2343E2F700F5C946 /* MapPriceEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A58AC2343E2F700F5C946 /* MapPriceEntity+CoreDataClass.m */; };
 		AA5A58AF2343E2F700F5C946 /* MapPriceEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A58AD2343E2F700F5C946 /* MapPriceEntity+CoreDataProperties.m */; };
 		AA5A58B22343E54B00F5C946 /* DataBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A58B12343E54B00F5C946 /* DataBaseManager.m */; };
+		AA5A58B523479C6A00F5C946 /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5A58B423479C6A00F5C946 /* LocalNotificationManager.m */; };
 		AA962CAD232EC398006E5F19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAC232EC398006E5F19 /* AppDelegate.m */; };
 		AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA962CAF232EC398006E5F19 /* MainViewController.m */; };
 		AA962CB5232EC399006E5F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA962CB4232EC399006E5F19 /* Assets.xcassets */; };
@@ -80,6 +81,8 @@
 		AA5A58AD2343E2F700F5C946 /* MapPriceEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MapPriceEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		AA5A58B02343E54B00F5C946 /* DataBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseManager.h; sourceTree = "<group>"; };
 		AA5A58B12343E54B00F5C946 /* DataBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseManager.m; sourceTree = "<group>"; };
+		AA5A58B323479C6A00F5C946 /* LocalNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNotificationManager.h; sourceTree = "<group>"; };
+		AA5A58B423479C6A00F5C946 /* LocalNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationManager.m; sourceTree = "<group>"; };
 		AA962CA8232EC398006E5F19 /* iosAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA962CAB232EC398006E5F19 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AA962CAC232EC398006E5F19 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				AA19CF5823391C8800F600E0 /* LocationService.m */,
 				AA5A58B02343E54B00F5C946 /* DataBaseManager.h */,
 				AA5A58B12343E54B00F5C946 /* DataBaseManager.m */,
+				AA5A58B323479C6A00F5C946 /* LocalNotificationManager.h */,
+				AA5A58B423479C6A00F5C946 /* LocalNotificationManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 				AA5A58972343ABC100F5C946 /* MapPrice.m in Sources */,
 				AA19CF5923391C8800F600E0 /* LocationService.m in Sources */,
 				AA19CF4D2334F3F800F600E0 /* APIManager.m in Sources */,
+				AA5A58B523479C6A00F5C946 /* LocalNotificationManager.m in Sources */,
 				AA19CF472333701100F600E0 /* PlaceTableCell.m in Sources */,
 				AA5A58AF2343E2F700F5C946 /* MapPriceEntity+CoreDataProperties.m in Sources */,
 				AA962CB0232EC398006E5F19 /* MainViewController.m in Sources */,
