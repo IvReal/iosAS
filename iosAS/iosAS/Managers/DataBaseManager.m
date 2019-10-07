@@ -71,6 +71,18 @@
     return entity != nil;
 }
 
+- (MapPrice*)getFavoriteByOrigin:(NSString*)origin andDestination:(NSString*)destination {
+    MapPrice* price = nil;
+    NSFetchRequest<MapPriceEntity*>* fetchRequest = [MapPriceEntity fetchRequest];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat: @"originIATA == %@ and destinationIATA == %@", origin, destination];
+    fetchRequest.fetchLimit = 1;
+    NSError* error = nil;
+    NSArray* result = [self.container.viewContext executeFetchRequest: fetchRequest error: &error];
+    MapPriceEntity* entity = [result firstObject];
+    price = [entity create];
+    return price;
+}
+
 - (void)loadFavoriteMapPricesWithSort:(PriceSort)sort completion: (DataBaseManager_MapPriceCompletion) completion {
     [self.container performBackgroundTask:^(NSManagedObjectContext * context) {
         NSFetchRequest* fetchRequest = [MapPriceEntity fetchRequest];

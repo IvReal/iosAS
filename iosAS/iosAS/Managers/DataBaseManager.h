@@ -25,6 +25,7 @@ typedef void(^DataBaseManager_MapPriceCompletion)(NSArray<MapPrice*>*);
 - (void)removeMapPriceFromFavorite:(MapPrice *)price;
 - (BOOL)isFavorite:(MapPrice *)price;
 - (void)loadFavoriteMapPricesWithSort:(PriceSort)sort completion: (DataBaseManager_MapPriceCompletion) completion;
+- (MapPrice*)getFavoriteByOrigin:(NSString*)origin andDestination:(NSString*)destination;
 
 @end
 

@@ -40,6 +40,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.definesPresentationContext = YES;
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 10.0;
     layout.minimumInteritemSpacing = 5.0;
@@ -116,7 +118,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     DataSourceType dataType = (int)_segmentedControl.selectedSegmentIndex;
-    [self.delegate selectPlace:[_currentArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
+    [self.delegate selectPlace:[self.actualArray objectAtIndex:indexPath.row] withType:_placeType andDataType:dataType];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

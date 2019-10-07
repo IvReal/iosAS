@@ -83,7 +83,7 @@
     }
     // TODO: move to helper
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
     cell.textLabel.text = [NSString stringWithFormat:@"%@-%@ (%@-%@)", price.originCity.name, price.destinationCity.name, price.originIATA, price.destinationIATA];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Depart date: %@, Price: %ld RUR", [dateFormatter stringFromDate:price.departDate], (long)price.value];
     cell.backgroundColor = self.view.backgroundColor;
