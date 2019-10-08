@@ -9,6 +9,7 @@
 #import "APIManager.h"
 #import "PlaceViewController.h"
 #import "Place2ViewController.h"
+#import "SearchViewController.h"
 #import "LocationService.h"
 
 @interface MainViewController () <PlaceViewControllerDelegate>
@@ -19,6 +20,9 @@
 @property (nonatomic, weak, readwrite) UILabel* labelAddress;
 
 @property (nonatomic, weak, readwrite) DataManager* dataManager;
+
+@property (nonatomic, weak) NSString* codeFrom;
+@property (nonatomic, weak) NSString* codeTo;
 
 @end
 
@@ -33,12 +37,15 @@
     
     [self addDepartureButton];
     [self addArrivalButton];
+    [self addSearchButton];
     [self addAddressLabel];
 
     self.dataManager = [DataManager shared];
     [self.dataManager loadData];
 
     [self addNotifications];
+    
+    [self setSearchButtonEnabled];
 }
 
 - (void)dealloc {
@@ -55,13 +62,15 @@
     CGFloat hButton = 50.0;
     CGFloat hLabel = 100.0;
     CGFloat x = 50.0;
-    CGFloat y = (height / 2) - (hButton * 2 + hLabel) / 2;
+    CGFloat y = (height / 2) - (hButton * 3 + hLabel) / 2;
     CGFloat w = width - x * 2;
     
     self.buttonDeparture.frame = CGRectMake(x, y, w, hButton);
     y += self.buttonDeparture.frame.size.height + indent;
     self.buttonArrival.frame = CGRectMake(x, y, w, hButton);
     y += self.buttonArrival.frame.size.height + indent;
+    self.buttonSearch.frame = CGRectMake(x, y, w, hButton);
+    y += self.buttonSearch.frame.size.height + indent;
     self.labelAddress.frame = CGRectMake(x, y, w, hLabel);
 }
 
@@ -89,6 +98,17 @@
     self.buttonArrival = button;
 }
 
+- (void)addSearchButton {
+    if (nil != self.buttonSearch) { return; }
+    UIButton *button = [UIButton buttonWithType: UIButtonTypeSystem];
+    [button setTitle:@"SEARCH" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor blueColor];
+    button.tintColor = [UIColor whiteColor];
+    [button addTarget:self action:@selector(searchButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    self.buttonSearch = button;
+}
+
 - (void)fromtoButtonTap:(UIButton *)sender
 {
     if ([sender isEqual:self.buttonDeparture]) {
@@ -102,6 +122,17 @@
         placeViewController.delegate = self;
         [self.navigationController pushViewController: placeViewController animated:YES];
     }
+}
+
+- (void)searchButtonTap:(UIButton *)sender
+{
+    SearchViewController *searchViewController;
+    searchViewController = [[SearchViewController alloc] initWithFrom:self.codeFrom andTo:self.codeTo];
+    [self.navigationController pushViewController: searchViewController animated:YES];
+}
+
+- (void)setSearchButtonEnabled {
+    [self.buttonSearch setEnabled:self.codeFrom != nil && self.codeTo != nil];
 }
 
 - (void)addAddressLabel {
@@ -166,11 +197,17 @@
     NSLog(@"didReceiveAirports %lu", self.dataManager.airports.count);
 }
 
+- (NSString*)getButtonTitle:(NSString*)name code:(NSString*) code {
+    return [NSString stringWithFormat:@"%@ (%@)", name, code];
+}
+
 - (void)updateCurrentLocation:(NSNotification *)notification {
     CLLocation *currentLocation = notification.object;
     City *city = [[LocationService shared] cityByLocation: [DataManager shared].cities location:currentLocation];
     if (NO == [city isKindOfClass:[City class]]) return;
-    [self.buttonDeparture setTitle:[city.name uppercaseString] forState:UIControlStateNormal];
+    [self.buttonDeparture setTitle:[[self getButtonTitle:city.name code:city.code] uppercaseString] forState:UIControlStateNormal];
+    self.codeFrom = city.code;
+    [self setSearchButtonEnabled];
     [self addressFromLocation:currentLocation];
 }
 
@@ -196,23 +233,26 @@
 
 - (void)selectPlace:(id)place withType:(PlaceType)placeType andDataType:(DataSourceType)dataType {
     NSString *title;
-    NSString *iata;
+    NSString *code;
     if (dataType == DataSourceTypeCity) {
         City *city = (City *)place;
-        title = city.name;
-        iata = city.code;
+        title = [self getButtonTitle:city.name code:city.code];
+        code = city.code;
     }
     else if (dataType == DataSourceTypeAirport) {
         Airport *airport = (Airport *)place;
-        title = airport.name;
-        iata = airport.cityCode;
+        title = [self getButtonTitle:airport.name code:airport.cityCode];
+        code = airport.cityCode;
     }
     if (placeType == PlaceTypeDeparture) {
         [self.buttonDeparture setTitle:[title uppercaseString] forState:UIControlStateNormal];
+        self.codeFrom = code;
     }
     else if (placeType == PlaceTypeArrival) {
         [self.buttonArrival setTitle:[title uppercaseString] forState:UIControlStateNormal];
+        self.codeTo = code;
     }
+    [self setSearchButtonEnabled];
 }
 
 @end

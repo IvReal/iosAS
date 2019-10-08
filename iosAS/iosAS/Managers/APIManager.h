@@ -19,6 +19,7 @@ typedef void (^APIManager_GetMapPricesCompletion)(NSArray<MapPrice*>*);
 
 - (void) getNewsForCountry: (NSString*) country completion: (APIManager_GetNewsCompletion) completion;
 - (void) getMapPricesFrom: (NSString*) IATA completion: (APIManager_GetMapPricesCompletion) completion;
+- (void) getMapPricesFrom: (NSString*) origin to: (NSString*) destination completion: (APIManager_GetMapPricesCompletion) completion;
 
 @end
 
